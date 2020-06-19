@@ -1,4 +1,5 @@
 #pragma once
 #include <stdlib.h>
+#include <stdbool.h>
 
-size_t get_index_of_substring(char const *text, char const *pattern);
+bool is_substring(char const *text, char const *pattern, size_t *match_index);

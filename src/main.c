@@ -1,10 +1,16 @@
 #include <stdio.h>
 #include "rabin.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-  const char text[] = "myaoeuy";
-  const char pattern[] = "aoeu";
+  if (argc != 3)
+  {
+    printf("Syntax: rabin text pattern\n");
+    return -1;
+  }
+
+  const char *text = argv[1];
+  const char *pattern = argv[2];
   size_t match_index;
   bool has_match = is_substring(text, pattern, &match_index);
   if (has_match)
@@ -15,5 +21,5 @@ int main()
   {
     printf("No match \n");
   }
-  return 0;
+  return has_match ? 0 : -1;
 }
